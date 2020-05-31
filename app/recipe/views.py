@@ -5,7 +5,9 @@ from core.models import Tag
 from .serialize import TagSerializer
 
 
-class TagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet, mixins.CreateModelMixin):
+class TagViewSet(mixins.ListModelMixin,
+                 viewsets.GenericViewSet,
+                 mixins.CreateModelMixin):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     queryset = Tag.objects.all()
